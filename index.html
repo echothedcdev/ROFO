@@ -125,9 +125,38 @@
       }
     });
 
-    rofoSupabase.auth.onAuthStateChange((_event,session)=>{
+    const profileSyncInProgress=new Set();
+
+    async function ensureRofoProfile(user){
+      if(!user || profileSyncInProgress.has(user.id)) return;
+      profileSyncInProgress.add(user.id);
+      const metadata=user.user_metadata || {};
+      const displayName=metadata.global_name || metadata.full_name || metadata.name || metadata.user_name || metadata.preferred_username || 'Discord user';
+      const avatarUrl=metadata.avatar_url || metadata.picture || null;
+      try{
+        const {error}=await rofoSupabase.from('rofo_profiles').upsert({
+          user_id:user.id,
+          display_name:displayName,
+          avatar_url:avatarUrl,
+          updated_at:new Date().toISOString()
+        },{onConflict:'user_id'});
+        if(error) throw error;
+        setAuthMessage('Your ROFO profile is ready.');
+      }catch(error){
+        console.error('ROFO profile sync failed:',error);
+        setAuthMessage('Signed in, but your ROFO profile could not sync. Please try refreshing.',true);
+      }finally{
+        profileSyncInProgress.delete(user.id);
+      }
+    }
+
+    rofoSupabase.auth.onAuthStateChange((event,session)=>{
       showUser(session?.user || null);
       authButton.disabled=false;
+      if(session?.user && (event==='INITIAL_SESSION' || event==='SIGNED_IN')){
+        // Run the database request after the auth callback has returned.
+        Promise.resolve().then(()=>ensureRofoProfile(session.user));
+      }
     });
 
     rofoSupabase.auth.getSession().then(({data,error})=>{
@@ -135,7 +164,9 @@
         setAuthMessage(error.message,true);
         return;
       }
-      showUser(data.session?.user || null);
+      const user=data.session?.user || null;
+      showUser(user);
+      if(user) ensureRofoProfile(user);
     });
   </script>
 </body>
