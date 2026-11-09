@@ -1,173 +1,81 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b12">
-  <meta name="description" content="ROFO — a simple home for Roblox and Discord verification.">
-  <title>ROFO — Roblox verification, simplified</title>
-  <style>
-    :root{color-scheme:dark;--bg:#090b12;--panel:#111522;--muted:#9aa4b8;--text:#f5f7fb;--green:#55d98a;--line:#252c3c}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#123322 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
-    header{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #ffffff12}
-    .brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:850;letter-spacing:.08em}.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#65e6a0,#238653);box-shadow:0 8px 28px #55d98a33;font-size:18px}
-    nav{display:flex;gap:28px;color:var(--muted);font-size:14px}nav a:hover,.muted-link:hover{color:white}
-    .top-link{border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:13px;font-weight:700}
-    .auth-area{display:flex;align-items:center;gap:10px}.auth-button{border:0;cursor:pointer;font:inherit;font-size:13px;font-weight:800;border-radius:10px;padding:10px 14px;background:var(--green);color:#07130c}.auth-button:disabled{opacity:.6;cursor:wait}.auth-user{font-size:12px;color:var(--muted);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .auth-message{min-height:22px;margin:12px auto 0;color:var(--muted);font-size:13px;text-align:center}.auth-message.error{color:#ff9b9b}
-    .hero{padding:112px 0 96px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #55d98a44;background:#55d98a10;color:#a0f2c2;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}
-    h1{font-size:clamp(48px,8vw,82px);line-height:1.04;letter-spacing:-.065em;margin:24px auto 20px;max-width:850px}h1 span{color:var(--green)}
-    .lead{max-width:620px;margin:0 auto;color:var(--muted);font-size:18px}
-    .actions{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}.btn{padding:13px 19px;border-radius:12px;font-weight:750;font-size:14px;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.primary{background:var(--green);color:#07130c;box-shadow:0 10px 30px #55d98a33}.secondary{border:1px solid var(--line);background:#ffffff08}
-    .preview{max-width:760px;margin:65px auto 0;padding:14px;border:1px solid #ffffff18;border-radius:18px;background:linear-gradient(145deg,#171c2b,#0e111b);box-shadow:0 35px 100px #0009;text-align:left}
-    .preview-bar{display:flex;gap:7px;padding:3px 4px 14px;border-bottom:1px solid var(--line)}.dot{width:8px;height:8px;border-radius:50%;background:#41495b}.preview-inner{padding:28px;display:grid;grid-template-columns:1fr 1.2fr;gap:20px}.preview-kicker{font-size:11px;color:#83e9ad;letter-spacing:.12em;font-weight:800}.preview h3{margin:7px 0;font-size:23px}.preview p{color:var(--muted);font-size:13px;margin:0}.mock-card{border:1px solid var(--line);border-radius:13px;padding:17px;background:#0b0e17}.mock-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff0c;font-size:12px}.mock-row:last-child{border:0}.status{color:#8beeb5;background:#8beeb515;padding:3px 8px;border-radius:99px;font-size:10px}
-    section{padding:70px 0}.section-head{text-align:center;margin-bottom:35px}.section-head h2{font-size:34px;letter-spacing:-.04em;margin:0 0 8px}.section-head p{margin:0;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:23px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#131827,#0e111b)}.feature-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#55d98a1a;color:#8beeb5;font-size:19px}.feature h3{margin:16px 0 6px;font-size:17px}.feature p{margin:0;color:var(--muted);font-size:14px}
-    .bottom{padding:38px 0 55px;border-top:1px solid #ffffff12;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:13px}.bottom strong{color:white;letter-spacing:.08em}
-    @media(max-width:700px){header{flex-wrap:wrap;padding:14px 0}.auth-area{margin-left:auto}nav{display:none}.hero{padding:80px 0 65px}.preview-inner{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.bottom{flex-direction:column}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090d0b">
+<meta name="description" content="ROFO — Discord moderation, made simple.">
+<title>ROFO — Discord moderation</title>
+<style>
+:root{color-scheme:dark;--bg:#090d0b;--panel:#111a15;--panel2:#16231b;--line:#263b2d;--text:#f3f8f4;--muted:#9aada0;--green:#62df91;--green2:#2c9d5a;--red:#ff7777;--yellow:#f1ca70}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 30% -15%,#17482b 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:900;letter-spacing:.1em}.mark{width:37px;height:37px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(135deg,#70efa1,#238a4c);color:#07140b;box-shadow:0 7px 28px #55d98a33;font-size:18px}
+.header-right{display:flex;align-items:center;gap:12px}.muted{color:var(--muted)}.small{font-size:12px}.btn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#ffffff08;color:var(--text);font-weight:750;font-size:13px}.btn:hover{border-color:#4a805c;background:#ffffff10}.btn.primary{background:var(--green);color:#07150b;border-color:var(--green)}.btn.danger{border-color:#673a3a;color:#ffaaaa;background:#4b171722}.btn:disabled{opacity:.5;cursor:not-allowed}
+main{padding:48px 0 80px}.hero{max-width:750px;margin:40px auto 36px;text-align:center}.eyebrow{color:#a7f0bf;font-size:12px;font-weight:850;letter-spacing:.15em;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,70px);line-height:1.02;letter-spacing:-.06em;margin:18px 0}.hero h1 span{color:var(--green)}.hero p{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}.hero-actions{display:flex;justify-content:center;gap:12px;margin-top:25px;flex-wrap:wrap}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:55px auto;max-width:960px}.feature,.panel,.server-card{background:linear-gradient(145deg,#142019,#0e1511);border:1px solid var(--line);border-radius:16px;padding:21px}.feature .ico{font-size:22px;color:var(--green)}.feature h3{margin:10px 0 5px}.feature p{margin:0;color:var(--muted);font-size:13px}
+#dashboard{display:none}.dash-head{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin:5px 0 24px}.dash-head h1{font-size:34px;letter-spacing:-.04em;margin:0}.dash-layout{display:grid;grid-template-columns:270px 1fr;gap:18px}.side-panel{align-self:start}.server-list{display:grid;gap:8px;margin-top:13px}.server-item{display:flex;align-items:center;gap:10px;text-align:left;padding:10px;border-radius:10px;border:1px solid transparent;background:#ffffff05;color:var(--text);width:100%}.server-item.active{border-color:#4c9864;background:#21452e66}.server-icon{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:#244c32;color:#b8f5ca;font-weight:850;overflow:hidden}.server-icon img{width:100%;height:100%;object-fit:cover}.server-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:750}.server-state{font-size:10px;color:var(--muted)}.content{min-width:0}.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:15px}.stat{padding:16px;border-radius:13px;background:#ffffff06;border:1px solid #ffffff10}.stat strong{display:block;font-size:22px}.stat span{font-size:11px;color:var(--muted)}.panel h2{font-size:16px;margin:0 0 13px}.panel + .panel{margin-top:14px}.actions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.action-btn{min-height:68px;border-radius:12px;border:1px solid var(--line);background:#ffffff06;color:var(--text);font-weight:750;font-size:12px;padding:10px}.action-btn:hover{border-color:#4c9864;background:#173221}.action-btn .emoji{display:block;font-size:19px;margin-bottom:5px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:grid;gap:5px}.field label{font-size:11px;color:var(--muted);font-weight:750}.field input,.field select{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;background:#0a110c;color:var(--text);outline:none}.field input:focus,.field select:focus{border-color:var(--green)}.full{grid-column:1/-1}.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.status{font-size:12px;color:var(--muted);min-height:20px;margin-top:10px}.status.error{color:#ff9999}.status.ok{color:#93efb2}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:13px}.hidden{display:none!important}.api-config{margin:12px 0 24px;padding:14px;border:1px solid #6b5727;background:#3b301422;border-radius:12px}.api-config strong{color:#f1d58c}.api-config .row{margin-top:9px}.api-config input{flex:1;min-width:230px;background:#0a110c;color:white;border:1px solid var(--line);padding:10px;border-radius:8px}.footer{border-top:1px solid #ffffff12;padding:25px 0 40px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px}
+@media(max-width:850px){.dash-layout{grid-template-columns:1fr}.server-list{grid-template-columns:repeat(2,minmax(0,1fr))}.actions-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){header{height:auto;min-height:70px}.features{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}.actions-grid{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.server-list{grid-template-columns:1fr}.dash-head{align-items:flex-start;flex-direction:column}.footer{flex-direction:column}}
+</style>
 </head>
 <body>
-  <header class="wrap">
-    <a class="brand" href="#"><span class="mark">R</span> ROFO</a>
-    <nav aria-label="Main navigation"><a href="#features">Features</a><a href="#how">How it works</a><a href="#about">About</a></nav>
-    <div class="auth-area">
-      <span class="auth-user" id="auth-user" hidden></span>
-      <button class="auth-button" id="auth-button" type="button">Sign in with Discord</button>
-    </div>
-  </header>
-  <div class="auth-message wrap" id="auth-message" role="status" aria-live="polite"></div>
-  <main>
-    <section class="hero wrap">
-      <div class="eyebrow"><span>●</span> A new way to verify</div>
-      <h1>Roblox meets Discord.<br><span>Simple as that.</span></h1>
-      <p class="lead">ROFO is being built to make Roblox and Discord verification easier for communities. A clean, simple experience is just the beginning.</p>
-      <div class="actions"><a class="btn primary" href="#features">Discover ROFO</a><a class="btn secondary" href="#how">How it works</a></div>
-      <div class="preview">
-        <div class="preview-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
-        <div class="preview-inner">
-          <div><div class="preview-kicker">ROFO / OVERVIEW</div><h3>Your community,<br>connected.</h3><p>A home for the tools that help communities connect Roblox accounts with Discord.</p></div>
-          <div class="mock-card"><div class="mock-row"><strong>Roblox connection</strong><span class="status">PLANNED</span></div><div class="mock-row"><strong>Discord linking</strong><span class="status">PLANNED</span></div><div class="mock-row"><strong>Server dashboard</strong><span class="status">PLANNED</span></div></div>
-        </div>
-      </div>
-    </section>
-    <section id="features" class="wrap">
-      <div class="section-head"><h2>Built for communities</h2><p>The foundations of a simpler verification experience.</p></div>
-      <div class="grid">
-        <article class="feature"><div class="feature-icon">◎</div><h3>Roblox verification</h3><p>A planned way for members to prove which Roblox account belongs to them.</p></article>
-        <article class="feature"><div class="feature-icon">⌘</div><h3>Discord linking</h3><p>Bring Roblox identity and Discord communities together in one flow.</p></article>
-        <article class="feature"><div class="feature-icon">▦</div><h3>Server tools</h3><p>A future dashboard for community owners to manage their ROFO setup.</p></article>
-      </div>
-    </section>
-    <section id="how" class="wrap">
-      <div class="section-head"><h2>Small steps. Solid foundations.</h2><p>Discord sign-in is the first account feature. Roblox linking and community verification are planned next.</p></div>
-      <div class="grid">
-        <article class="feature"><div class="feature-icon">01</div><h3>Explore</h3><p>Learn what ROFO is and what it aims to make easier.</p></article>
-        <article class="feature"><div class="feature-icon">02</div><h3>Connect</h3><p>Roblox and Discord linking are planned for a later stage.</p></article>
-        <article class="feature"><div class="feature-icon">03</div><h3>Manage</h3><p>Community management tools can grow alongside the project.</p></article>
-      </div>
-    </section>
-    <section id="about" class="wrap">
-      <div class="section-head"><h2>Meet ROFO.</h2><p>No clutter. No complicated pitch. Just a project focused on making verification easier.</p></div>
-    </section>
-  </main>
-  <footer class="bottom wrap"><div><strong>ROFO</strong><br>Roblox and Discord, connected.</div><div>© <span id="year"></span> ROFO. All rights reserved.</div></footer>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
-
-    const ROFO_SUPABASE_URL='https://auyaicguvjjkipdcppgm.supabase.co';
-    const ROFO_SUPABASE_PUBLISHABLE_KEY='sb_publishable_NkoYkbKMtPQprc2KoHdQ2g_UoZDwuKI';
-    const rofoSupabase=window.supabase.createClient(ROFO_SUPABASE_URL,ROFO_SUPABASE_PUBLISHABLE_KEY);
-    const authButton=document.getElementById('auth-button');
-    const authUser=document.getElementById('auth-user');
-    const authMessage=document.getElementById('auth-message');
-
-    function setAuthMessage(message,isError=false){
-      authMessage.textContent=message;
-      authMessage.classList.toggle('error',isError);
-    }
-
-    function showUser(user){
-      if(user){
-        const name=user.user_metadata?.global_name || user.user_metadata?.full_name || user.user_metadata?.name || user.user_metadata?.user_name || 'Discord user';
-        authUser.textContent=name;
-        authUser.hidden=false;
-        authButton.textContent='Sign out';
-        authButton.dataset.action='signout';
-      }else{
-        authUser.hidden=true;
-        authUser.textContent='';
-        authButton.textContent='Sign in with Discord';
-        authButton.dataset.action='signin';
-      }
-    }
-
-    authButton.addEventListener('click',async()=>{
-      authButton.disabled=true;
-      setAuthMessage('');
-      try{
-        if(authButton.dataset.action==='signout'){
-          const {error}=await rofoSupabase.auth.signOut();
-          if(error) throw error;
-          setAuthMessage('You are signed out of ROFO.');
-        }else{
-          const {error}=await rofoSupabase.auth.signInWithOAuth({
-            provider:'discord',
-            options:{redirectTo:'https://echothedcdev.github.io/ROFO/'}
-          });
-          if(error) throw error;
-        }
-      }catch(error){
-        setAuthMessage(error.message || 'Could not complete Discord sign-in.',true);
-        authButton.disabled=false;
-      }
-    });
-
-    const profileSyncInProgress=new Set();
-
-    async function ensureRofoProfile(user){
-      if(!user || profileSyncInProgress.has(user.id)) return;
-      profileSyncInProgress.add(user.id);
-      const metadata=user.user_metadata || {};
-      const displayName=metadata.global_name || metadata.full_name || metadata.name || metadata.user_name || metadata.preferred_username || 'Discord user';
-      const avatarUrl=metadata.avatar_url || metadata.picture || null;
-      try{
-        const {error}=await rofoSupabase.from('rofo_profiles').upsert({
-          user_id:user.id,
-          display_name:displayName,
-          avatar_url:avatarUrl,
-          updated_at:new Date().toISOString()
-        },{onConflict:'user_id'});
-        if(error) throw error;
-        setAuthMessage('Your ROFO profile is ready.');
-      }catch(error){
-        console.error('ROFO profile sync failed:',error);
-        setAuthMessage('Signed in, but your ROFO profile could not sync. Please try refreshing.',true);
-      }finally{
-        profileSyncInProgress.delete(user.id);
-      }
-    }
-
-    rofoSupabase.auth.onAuthStateChange((event,session)=>{
-      showUser(session?.user || null);
-      authButton.disabled=false;
-      if(session?.user && (event==='INITIAL_SESSION' || event==='SIGNED_IN')){
-        // Run the database request after the auth callback has returned.
-        Promise.resolve().then(()=>ensureRofoProfile(session.user));
-      }
-    });
-
-    rofoSupabase.auth.getSession().then(({data,error})=>{
-      if(error){
-        setAuthMessage(error.message,true);
-        return;
-      }
-      const user=data.session?.user || null;
-      showUser(user);
-      if(user) ensureRofoProfile(user);
-    });
-  </script>
-</body>
-</html>
+<header class="wrap"><a class="brand" href="#"><span class="mark">R</span> ROFO</a><div class="header-right"><span id="who" class="muted small"></span><button id="login" class="btn primary">Sign in with Discord</button></div></header>
+<main class="wrap">
+<section id="landing">
+<div class="hero"><div class="eyebrow">Discord moderation, simplified</div><h1>Your servers.<br><span>Your rules.</span></h1><p>Manage your Discord communities from one clean dashboard. Ban, kick, timeout, warn, configure logs and more — with ROFO.</p><div class="hero-actions"><button class="btn primary" id="hero-login">Open dashboard with Discord</button><a class="btn" href="https://discord.com/developers/applications" target="_blank" rel="noreferrer">Discord developer portal ↗</a></div></div>
+<div class="features"><article class="feature"><div class="ico">⌁</div><h3>Moderation tools</h3><p>Ban, kick, timeout, warnings, message cleanup, slowmode and channel controls.</p></article><article class="feature"><div class="ico">▤</div><h3>Server dashboard</h3><p>See the servers you manage and whether ROFO has joined each one.</p></article><article class="feature"><div class="ico">◈</div><h3>Moderation logs</h3><p>Keep moderation actions organized in a channel you choose.</p></article></div>
+</section>
+<section id="dashboard">
+<div class="dash-head"><div><div class="eyebrow">ROFO CONTROL CENTER</div><h1>Server dashboard</h1><div class="muted small">Choose a server to manage its moderation tools.</div></div><div class="row"><button class="btn" id="refresh">↻ Refresh</button><button class="btn" id="reconnect">Reconnect Discord</button></div></div>
+<div id="api-config" class="api-config"><strong>One-time setup: connect your Railway API</strong><div class="small muted">Paste the public Railway domain for your ROFO-BOT service (the URL ending in .up.railway.app).</div><div class="row"><input id="api-url" placeholder="https://your-service.up.railway.app"><button id="save-api" class="btn primary">Save API URL</button></div></div>
+<div class="dash-layout"><aside class="panel side-panel"><h2>Your servers</h2><div id="servers" class="server-list"><div class="muted small">Loading servers…</div></div><div id="server-status" class="status"></div></aside>
+<div class="content"><div id="no-server" class="empty">Select a server from the list to open its controls.</div><div id="server-content" class="hidden">
+<div class="panel"><div class="row" style="justify-content:space-between"><div><div class="eyebrow">SELECTED SERVER</div><h2 id="server-title" style="font-size:22px;margin:4px 0">Server</h2></div><span id="bot-badge" class="status">Bot status</span></div><div class="overview-grid"><div class="stat"><strong id="member-count">—</strong><span>Members</span></div><div class="stat"><strong id="channel-count">—</strong><span>Text channels</span></div><div class="stat"><strong id="role-count">—</strong><span>Roles</span></div></div></div>
+<div class="panel"><h2>Quick moderation</h2><div class="actions-grid">
+<button class="action-btn" data-action="ban"><span class="emoji">⛔</span>Ban member</button><button class="action-btn" data-action="kick"><span class="emoji">👢</span>Kick member</button><button class="action-btn" data-action="timeout"><span class="emoji">⏱</span>Timeout</button><button class="action-btn" data-action="untimeout"><span class="emoji">↩</span>Remove timeout</button><button class="action-btn" data-action="warn"><span class="emoji">⚠</span>Warn member</button><button class="action-btn" data-action="unban"><span class="emoji">🟢</span>Unban by ID</button><button class="action-btn" data-action="purge"><span class="emoji">🧹</span>Delete messages</button><button class="action-btn" data-action="clearwarnings"><span class="emoji">🗑</span>Clear warnings</button><button class="action-btn" data-action="lock"><span class="emoji">🔒</span>Lock channel</button><button class="action-btn" data-action="unlock"><span class="emoji">🔓</span>Unlock channel</button><button class="action-btn" data-action="slowmode"><span class="emoji">🐢</span>Set slowmode</button><button class="action-btn" data-action="warnings"><span class="emoji">📋</span>View warnings</button>
+</div><div id="action-status" class="status"></div></div>
+<div class="panel"><h2>Server configuration</h2><div class="form-grid"><div class="field"><label for="log-channel">MODERATION LOG CHANNEL</label><select id="log-channel"><option value="">Select a text channel</option></select></div><div class="field" style="align-content:end"><button class="btn primary" id="save-logs">Save log channel</button></div></div><div id="settings-status" class="status"></div></div>
+<div class="panel"><h2>Role management</h2><div class="form-grid"><div class="field"><label for="role-user">MEMBER DISCORD ID</label><input id="role-user" placeholder="User ID"></div><div class="field"><label for="role-select">ROLE</label><select id="role-select"><option value="">Select role</option></select></div><div class="row full"><button class="btn primary" id="add-role">Add role</button><button class="btn" id="remove-role">Remove role</button></div></div><div id="role-status" class="status"></div></div>
+</div></div></div>
+</section>
+<div id="global-status" class="status" role="status"></div>
+</main>
+<footer class="footer wrap"><div><strong style="color:white;letter-spacing:.12em">ROFO</strong><br>Discord moderation, made simple.</div><div>Use moderation tools responsibly. Server permissions are checked before actions.</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://auyaicguvjjkipdcppgm.supabase.co';
+const SUPABASE_KEY='sb_publishable_NkoYkbKMtPQprc2KoHdQ2g_UoZDwuKI';
+const API_KEY='rofo_api_url_v1';
+const supabase=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const $=id=>document.getElementById(id);
+let session=null, selectedGuild=null, guildData=null, guilds=[];
+let apiBase=localStorage.getItem(API_KEY)||'';
+function status(id,msg,error=false){const el=$(id);el.textContent=msg||'';el.className='status'+(error?' error':msg?' ok':'');}
+function setSignedIn(user){$('who').textContent=user?(user.user_metadata?.global_name||user.user_metadata?.name||'Discord member'):'';$('login').textContent=user?'Sign out':'Sign in with Discord';$('landing').classList.toggle('hidden',!!user);$('dashboard').style.display=user?'block':'none';}
+function discordLogin(){return supabase.auth.signInWithOAuth({provider:'discord',options:{scopes:'identify guilds',redirectTo:'https://echothedcdev.github.io/ROFO/'}});}
+$('login').onclick=async()=>{if(session){await supabase.auth.signOut();return;}await discordLogin();};
+$('hero-login').onclick=discordLogin;
+$('reconnect').onclick=discordLogin;
+$('api-url').value=apiBase;
+$('save-api').onclick=()=>{const v=$('api-url').value.trim().replace(/\/$/,'');if(!/^https:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(v)){status('global-status','Enter a valid HTTPS Railway domain.',true);return;}apiBase=v;localStorage.setItem(API_KEY,v);$('api-config').classList.add('hidden');status('global-status','Railway API URL saved.');if(session)loadGuilds();};
+if(apiBase)$('api-config').classList.add('hidden');
+function authHeaders(){const providerToken=session?.provider_token;if(!session?.access_token||!providerToken)throw new Error('Discord server access is missing. Click “Reconnect Discord” and approve the requested access.');return {'Authorization':'Bearer '+session.access_token,'X-Discord-Access-Token':providerToken,'Content-Type':'application/json'};}
+async function api(path,options={}){if(!apiBase)throw new Error('Add your Railway API URL first.');const res=await fetch(apiBase+path,{...options,headers:{...authHeaders(),...(options.headers||{})}});const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.error||'Request failed ('+res.status+').');return data;}
+function iconUrl(g){return g.icon?'https://cdn.discordapp.com/icons/'+g.id+'/'+g.icon+'.png?size=64':null;}
+async function loadGuilds(){status('server-status','Loading your servers…');$('servers').innerHTML='';try{const data=await api('/api/guilds');guilds=data.guilds||[];if(!guilds.length){$('servers').innerHTML='<div class="muted small">No manageable servers found.</div>';status('server-status','Make sure your Discord account has Manage Server or Administrator.');return;}for(const g of guilds){const b=document.createElement('button');b.className='server-item';b.dataset.id=g.id;const ic=document.createElement('span');ic.className='server-icon';const img=iconUrl(g);if(img){const i=document.createElement('img');i.src=img;i.alt='';ic.append(i);}else ic.textContent=g.name.slice(0,1).toUpperCase();const wrap=document.createElement('span');wrap.style.minWidth='0';const name=document.createElement('span');name.className='server-name';name.textContent=g.name;const sub=document.createElement('span');sub.className='server-state';sub.textContent=g.botPresent?'ROFO connected':'ROFO not added';wrap.append(name,sub);b.append(ic,wrap);b.onclick=()=>selectGuild(g.id);$('servers').append(b);}status('server-status',guilds.length+' manageable server(s).');}catch(e){status('server-status',e.message,true);}}
+async function selectGuild(id){selectedGuild=id;document.querySelectorAll('.server-item').forEach(b=>b.classList.toggle('active',b.dataset.id===id));$('no-server').classList.add('hidden');$('server-content').classList.remove('hidden');status('action-status','Loading server details…');try{guildData=await api('/api/guilds/'+id);const g=guildData.guild;$('server-title').textContent=g.name;$('member-count').textContent=g.memberCount??'—';$('channel-count').textContent=guildData.channels.length;$('role-count').textContent=guildData.roles.length;$('bot-badge').textContent='ROFO connected';fillSelect('log-channel',guildData.channels,'Select a text channel');$('log-channel').value=guildData.settings?.log_channel_id||'';fillSelect('role-select',guildData.roles,'Select role');status('action-status','Server ready.');}catch(e){status('action-status',e.message,true);}}
+function fillSelect(id,items,placeholder){const el=$(id);el.innerHTML='';const first=document.createElement('option');first.value='';first.textContent=placeholder;el.append(first);for(const item of items){const o=document.createElement('option');o.value=item.id;o.textContent=item.name;el.append(o);}}
+async function moderate(action,payload){if(!selectedGuild)throw new Error('Select a server first.');return api('/api/guilds/'+selectedGuild+'/moderate/'+action,{method:'POST',body:JSON.stringify(payload)});}
+function ask(label,def=''){return prompt(label,def);}
+async function quickAction(action){try{let payload={};if(['ban','kick','timeout','untimeout','warn','unban','clearwarnings','warnings'].includes(action)){payload.userId=ask(action==='unban'?'Discord user ID to unban:':'Target member Discord ID:');if(!payload.userId)return;if(action==='timeout'){const mins=ask('Timeout length in minutes (1–40320):','10');payload.minutes=Number(mins);if(!Number.isInteger(payload.minutes))throw new Error('Enter a whole number of minutes.');}if(['ban','kick','timeout','untimeout','warn'].includes(action)){payload.reason=ask('Reason:','No reason provided')||'No reason provided';}}
+if(action==='purge'){payload.channelId=ask('Text channel ID:');payload.amount=Number(ask('Number of recent messages to delete (1–100):','10'));if(!payload.channelId)return;}
+if(action==='slowmode'){payload.channelId=ask('Text channel ID:');payload.seconds=Number(ask('Slowmode seconds (0–21600):','5'));if(!payload.channelId)return;}
+if(['lock','unlock'].includes(action)){payload.channelId=ask('Text channel ID:');if(!payload.channelId)return;}
+if(action==='warnings'){const d=await api('/api/guilds/'+selectedGuild+'/warnings/'+payload.userId);const lines=(d.warnings||[]).map((w,i)=>(i+1)+'. '+w.reason+' — moderator '+w.moderator_id).join('\n');alert(lines||'No warnings found.');return;}
+if(!confirm('Run '+action+' on this server?'))return;status('action-status','Sending moderation action…');const result=await moderate(action,payload);status('action-status',result.message||'Action complete.');}catch(e){status('action-status',e.message,true);}}
+document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>quickAction(b.dataset.action));
+$('save-logs').onclick=async()=>{try{const r=await moderate('setlogs',{channelId:$('log-channel').value});status('settings-status',r.message);}catch(e){status('settings-status',e.message,true);}};
+async function roleAction(action){try{const userId=$('role-user').value.trim(),roleId=$('role-select').value;if(!userId||!roleId)throw new Error('Enter a member ID and select a role.');const r=await moderate(action,{userId,roleId,reason:'Changed from ROFO dashboard'});status('role-status',r.message);}catch(e){status('role-status',e.message,true);}}
+$('add-role').onclick=()=>roleAction('role_add');$('remove-role').onclick=()=>roleAction('role_remove');
+$('refresh').onclick=()=>loadGuilds();
+supabase.auth.onAuthStateChange((event,s)=>{session=s;setSignedIn(s?.user||null);if(s?.user){if(!s.provider_token){status('global-status','Reconnect Discord to grant ROFO permission to view your servers.',true);}else if(apiBase)loadGuilds();}else{guilds=[];selectedGuild=null;$('servers').innerHTML='';$('server-content').classList.add('hidden');$('no-server').classList.remove('hidden');}});
+supabase.auth.getSession().then(({data})=>{session=data.session;setSignedIn(session?.user||null);if(session?.user){if(!session.provider_token)status('global-status','Click Reconnect Discord to grant server-list access.',true);else if(apiBase)loadGuilds();}});
+</script>
+</body></html>
