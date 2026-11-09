@@ -10,28 +10,34 @@
     :root{color-scheme:dark;--bg:#090b12;--panel:#111522;--muted:#9aa4b8;--text:#f5f7fb;--green:#55d98a;--line:#252c3c}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#123322 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
     a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
-    header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}
+    header{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #ffffff12}
     .brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:850;letter-spacing:.08em}.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#65e6a0,#238653);box-shadow:0 8px 28px #55d98a33;font-size:18px}
     nav{display:flex;gap:28px;color:var(--muted);font-size:14px}nav a:hover,.muted-link:hover{color:white}
     .top-link{border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:13px;font-weight:700}
+    .auth-area{display:flex;align-items:center;gap:10px}.auth-button{border:0;cursor:pointer;font:inherit;font-size:13px;font-weight:800;border-radius:10px;padding:10px 14px;background:var(--green);color:#07130c}.auth-button:disabled{opacity:.6;cursor:wait}.auth-user{font-size:12px;color:var(--muted);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .auth-message{min-height:22px;margin:12px auto 0;color:var(--muted);font-size:13px;text-align:center}.auth-message.error{color:#ff9b9b}
     .hero{padding:112px 0 96px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #55d98a44;background:#55d98a10;color:#a0f2c2;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}
     h1{font-size:clamp(48px,8vw,82px);line-height:1.04;letter-spacing:-.065em;margin:24px auto 20px;max-width:850px}h1 span{color:var(--green)}
     .lead{max-width:620px;margin:0 auto;color:var(--muted);font-size:18px}
-    .actions{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}.btn{padding:13px 19px;border-radius:12px;font-weight:750;font-size:14px;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.primary{background:var(--green);color:white;box-shadow:0 10px 30px #55d98a33}.secondary{border:1px solid var(--line);background:#ffffff08}
+    .actions{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}.btn{padding:13px 19px;border-radius:12px;font-weight:750;font-size:14px;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.primary{background:var(--green);color:#07130c;box-shadow:0 10px 30px #55d98a33}.secondary{border:1px solid var(--line);background:#ffffff08}
     .preview{max-width:760px;margin:65px auto 0;padding:14px;border:1px solid #ffffff18;border-radius:18px;background:linear-gradient(145deg,#171c2b,#0e111b);box-shadow:0 35px 100px #0009;text-align:left}
     .preview-bar{display:flex;gap:7px;padding:3px 4px 14px;border-bottom:1px solid var(--line)}.dot{width:8px;height:8px;border-radius:50%;background:#41495b}.preview-inner{padding:28px;display:grid;grid-template-columns:1fr 1.2fr;gap:20px}.preview-kicker{font-size:11px;color:#83e9ad;letter-spacing:.12em;font-weight:800}.preview h3{margin:7px 0;font-size:23px}.preview p{color:var(--muted);font-size:13px;margin:0}.mock-card{border:1px solid var(--line);border-radius:13px;padding:17px;background:#0b0e17}.mock-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff0c;font-size:12px}.mock-row:last-child{border:0}.status{color:#8beeb5;background:#8beeb515;padding:3px 8px;border-radius:99px;font-size:10px}
     section{padding:70px 0}.section-head{text-align:center;margin-bottom:35px}.section-head h2{font-size:34px;letter-spacing:-.04em;margin:0 0 8px}.section-head p{margin:0;color:var(--muted)}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:23px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#131827,#0e111b)}.feature-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#55d98a1a;color:#8beeb5;font-size:19px}.feature h3{margin:16px 0 6px;font-size:17px}.feature p{margin:0;color:var(--muted);font-size:14px}
     .bottom{padding:38px 0 55px;border-top:1px solid #ffffff12;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:13px}.bottom strong{color:white;letter-spacing:.08em}
-    @media(max-width:700px){nav{display:none}.hero{padding:80px 0 65px}.preview-inner{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.bottom{flex-direction:column}}
+    @media(max-width:700px){header{flex-wrap:wrap;padding:14px 0}.auth-area{margin-left:auto}nav{display:none}.hero{padding:80px 0 65px}.preview-inner{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.bottom{flex-direction:column}}
   </style>
 </head>
 <body>
   <header class="wrap">
     <a class="brand" href="#"><span class="mark">R</span> ROFO</a>
     <nav aria-label="Main navigation"><a href="#features">Features</a><a href="#how">How it works</a><a href="#about">About</a></nav>
-    <a class="top-link" href="#features">Explore ROFO ↗</a>
+    <div class="auth-area">
+      <span class="auth-user" id="auth-user" hidden></span>
+      <button class="auth-button" id="auth-button" type="button">Sign in with Discord</button>
+    </div>
   </header>
+  <div class="auth-message wrap" id="auth-message" role="status" aria-live="polite"></div>
   <main>
     <section class="hero wrap">
       <div class="eyebrow"><span>●</span> A new way to verify</div>
@@ -67,6 +73,70 @@
     </section>
   </main>
   <footer class="bottom wrap"><div><strong>ROFO</strong><br>Roblox and Discord, connected.</div><div>© <span id="year"></span> ROFO. All rights reserved.</div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    const ROFO_SUPABASE_URL='https://auyaicguvjjkipdcppgm.supabase.co';
+    const ROFO_SUPABASE_PUBLISHABLE_KEY='sb_publishable_NkoYkbKMtPQprc2KoHdQ2g_UoZDwuKI';
+    const rofoSupabase=window.supabase.createClient(ROFO_SUPABASE_URL,ROFO_SUPABASE_PUBLISHABLE_KEY);
+    const authButton=document.getElementById('auth-button');
+    const authUser=document.getElementById('auth-user');
+    const authMessage=document.getElementById('auth-message');
+
+    function setAuthMessage(message,isError=false){
+      authMessage.textContent=message;
+      authMessage.classList.toggle('error',isError);
+    }
+
+    function showUser(user){
+      if(user){
+        const name=user.user_metadata?.global_name || user.user_metadata?.full_name || user.user_metadata?.name || user.user_metadata?.user_name || 'Discord user';
+        authUser.textContent=name;
+        authUser.hidden=false;
+        authButton.textContent='Sign out';
+        authButton.dataset.action='signout';
+      }else{
+        authUser.hidden=true;
+        authUser.textContent='';
+        authButton.textContent='Sign in with Discord';
+        authButton.dataset.action='signin';
+      }
+    }
+
+    authButton.addEventListener('click',async()=>{
+      authButton.disabled=true;
+      setAuthMessage('');
+      try{
+        if(authButton.dataset.action==='signout'){
+          const {error}=await rofoSupabase.auth.signOut();
+          if(error) throw error;
+          setAuthMessage('You are signed out of ROFO.');
+        }else{
+          const {error}=await rofoSupabase.auth.signInWithOAuth({
+            provider:'discord',
+            options:{redirectTo:'https://echothedcdev.github.io/ROFO/'}
+          });
+          if(error) throw error;
+        }
+      }catch(error){
+        setAuthMessage(error.message || 'Could not complete Discord sign-in.',true);
+        authButton.disabled=false;
+      }
+    });
+
+    rofoSupabase.auth.onAuthStateChange((_event,session)=>{
+      showUser(session?.user || null);
+      authButton.disabled=false;
+    });
+
+    rofoSupabase.auth.getSession().then(({data,error})=>{
+      if(error){
+        setAuthMessage(error.message,true);
+        return;
+      }
+      showUser(data.session?.user || null);
+    });
+  </script>
 </body>
 </html>
